@@ -60,17 +60,16 @@ npm run dev
 
 ## 🌐 Deployment Link
 
-(Add Netlify link here after deployment)
+https://social-media-scheduler-system.netlify.app/
 
 ---
 
 ## 🔗 Backend API Link
 
-(Add Render backend link here after deployment)
+https://social-media-scheduler-backend.onrender.com/
 
 ---
 
-## 📸 Screenshots
 
 ## 📸 Screenshots
 
@@ -96,7 +95,7 @@ npm run dev
 
 ## 🎥 Video Walkthrough
 
-(Add Google Drive / YouTube video link here)
+https://drive.google.com/file/d/1xyzRXjjKbdWir4VOHIHYVucTU8LQhXmx/view?usp=sharing
 
 ---
 
