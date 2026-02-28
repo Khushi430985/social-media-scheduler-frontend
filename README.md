@@ -77,7 +77,7 @@ https://social-media-scheduler-backend.onrender.com/
 ![Landing](./screenshots/LandingPage.png)
 
 ### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Dashboard.png)
 
 ### Posts Page
 ![Posts](./screenshots/Posts.png)
