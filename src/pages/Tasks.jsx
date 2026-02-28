@@ -123,7 +123,7 @@ const Tasks = () => {
 
                 <p>
                   <strong>Deadline:</strong>{" "}
-                  {new Date(task.deadline).toLocaleString()}
+                  {new Date(task.deadline).toLocaleString("en-GB")}
                 </p>
 
                 <div className="flex gap-4 mt-4">
