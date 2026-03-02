@@ -76,13 +76,13 @@ const Tasks = () => {
           onChange={(e) => setAssignedTo(e.target.value)}
         />
 
-        <input
+       <input
           type="datetime-local"
           className="bg-slate-900 text-white px-4 py-2 rounded-md"
+          min={new Date().toISOString().slice(0,16)}
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
-
         <Button onClick={handleCreate}>Create Task</Button>
       </div>
 
