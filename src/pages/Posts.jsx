@@ -55,6 +55,22 @@ const Posts = () => {
     fetchPosts();
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+
+    return `${day}-${month}-${year}, ${hours}:${minutes} ${ampm}`;
+  };
+
   return (
     <div>
       <h2 className="text-3xl font-bold mb-6">Posts</h2>
@@ -95,7 +111,7 @@ const Posts = () => {
         <input
           type="datetime-local"
           className="bg-slate-900 text-white px-4 py-2 rounded-md"
-          min={new Date().toISOString().slice(0,16)}
+          min={new Date().toISOString().slice(0, 16)}
           value={scheduledTime}
           onChange={(e) => setScheduledTime(e.target.value)}
         />
@@ -130,7 +146,7 @@ const Posts = () => {
               <p className="text-sm text-slate-400">
                 Scheduled:{" "}
                 {post.scheduled_time
-                  ? new Date(post.scheduled_time).toLocaleString()
+                  ? formatDate(post.scheduled_time)
                   : "Not Set"}
               </p>
 
