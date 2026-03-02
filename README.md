@@ -99,6 +99,10 @@ https://drive.google.com/file/d/1xyzRXjjKbdWir4VOHIHYVucTU8LQhXmx/view?usp=shari
 
 ---
 
+##Future Enhancements
+
+
+
 ## 👩‍💻 Author
 
 Developed as part of Masai School Full Stack Project.

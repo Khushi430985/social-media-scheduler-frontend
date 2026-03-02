@@ -51,6 +51,23 @@ const Tasks = () => {
     fetchTasks();
   };
 
+  // 🔥 Clean Date Formatter (DD-MM-YYYY)
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+
+    return `${day}-${month}-${year}, ${hours}:${minutes} ${ampm}`;
+  };
+
   return (
     <div>
       <h2 className="text-3xl font-bold mb-6">Tasks</h2>
@@ -76,13 +93,14 @@ const Tasks = () => {
           onChange={(e) => setAssignedTo(e.target.value)}
         />
 
-       <input
+        <input
           type="datetime-local"
           className="bg-slate-900 text-white px-4 py-2 rounded-md"
-          min={new Date().toISOString().slice(0,16)}
+          min={new Date().toISOString().slice(0, 16)}
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
+
         <Button onClick={handleCreate}>Create Task</Button>
       </div>
 
@@ -96,7 +114,6 @@ const Tasks = () => {
           return (
             <Card key={task.id} className="bg-slate-900 text-white">
               <CardContent className="p-6">
-                {/* Show Post Info */}
                 <p>
                   <strong>Post:</strong>{" "}
                   {relatedPost
@@ -123,30 +140,32 @@ const Tasks = () => {
 
                 <p>
                   <strong>Deadline:</strong>{" "}
-                  {new Date(task.deadline).toLocaleString("en-GB")}
+                  {formatDate(task.deadline)}
                 </p>
 
                 <div className="flex gap-4 mt-4">
-                <Button
-                  onClick={() =>
-                    handleUpdateStatus(
-                      task.id,
-                      task.status === "completed" ? "pending" : "completed"
-                    )
-                  }
-                >
-                  {task.status === "completed"
-                    ? "Mark Pending"
-                    : "Mark Completed"}
-                </Button>
+                  <Button
+                    onClick={() =>
+                      handleUpdateStatus(
+                        task.id,
+                        task.status === "completed"
+                          ? "pending"
+                          : "completed"
+                      )
+                    }
+                  >
+                    {task.status === "completed"
+                      ? "Mark Pending"
+                      : "Mark Completed"}
+                  </Button>
 
-                <Button
-                  variant="destructive"
-                  onClick={() => handleDelete(task.id)}
-                >
-                  Delete
-                </Button>
-              </div>
+                  <Button
+                    variant="destructive"
+                    onClick={() => handleDelete(task.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           );
